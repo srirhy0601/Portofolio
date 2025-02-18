@@ -1,0 +1,130 @@
+/* Styling untuk container utama */
+.portfolio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Gaya untuk bagian gambar */
+.portfolio-images {
+  width: 65%;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-stack {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Menyesuaikan tinggi gambar */
+}
+
+.portfolio-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+
+/* Posisi gambar bertumpuk secara presisi */
+.img-top {
+  top: 50px;
+  right: 30px;
+  z-index: 3;
+}
+.img-middle {
+  top: 0px;
+  left: 20px;
+  z-index: 2;
+  opacity: 0.85;
+}
+.img-bottom {
+  top: 100px;
+  left: 40px;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Efek hover */
+.portfolio-img:hover {
+  transform: scale(1.1);
+  z-index: 4;
+  opacity: 1;
+}
+
+/* Gaya untuk teks */
+.portfolio-caption {
+  margin-left: 50px;
+  width: 50%;
+  max-width: 600px;
+}
+
+.portfolio-description {
+  text-align: justify;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .portfolio {
+    flex-direction: column;
+    text-align: center;
+  }
+  .portfolio-images,
+  .portfolio-caption {
+    width: 100%;
+    max-width: 100%;
+  }
+  .portfolio-caption {
+    text-align: center;
+  }
+}
+
+.porto-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 350px; /* Set fixed height for consistency */
+}
+
+.portfolio-card-img {
+  width: 100%;
+  height: 100%; /* Memastikan gambar mengisi area wrapper */
+  object-fit: contain; /* Agar gambar sepenuhnya terlihat tanpa terpotong */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Overlay hover effect */
+.porto-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(129, 156, 191, 0.742); /* Transparansi yang lebih tinggi */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.porto-card-caption {
+  padding: 15px;
+}
+
+.porto-card:hover .porto-card-overlay {
+  opacity: 1;
+}
+
+.porto-card:hover .portfolio-card-img {
+  transform: scale(1.05); /* Memberikan efek zoom */
+}
